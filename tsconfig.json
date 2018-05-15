@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "target": "es6"
+  },
+  "files": [
+    "index.ts"
+  ]
+}
