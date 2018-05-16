@@ -3,9 +3,10 @@
     "module": "commonjs",
     "outDir": "dist",
     "moduleResolution": "node",
-    "target": "es6"
+    "target": "es2017"
   },
   "files": [
+    "test/wrap-locals-test.ts",
     "index.ts"
   ]
 }
