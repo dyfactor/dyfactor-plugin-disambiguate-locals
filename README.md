@@ -6,9 +6,10 @@ This is a [Dynamic Dyfcator Plugin](https://github.com/dyfactor/dyfactor#dynamic
 
 # Usage
 
-```
-yarn add dyfactor-plugin-disambiguate-locals --dev
-dyfactor run template disambiguate-locals ./app --level <extract|modify>
+```shell 
+> yarn add dyfactor-plugin-disambiguate-locals --dev
+
+> dyfactor run template disambiguate-locals ./app --level <extract|modify>
 ```
 
 # What Does This Do?
