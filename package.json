@@ -1,6 +1,6 @@
 {
   "name": "dyfactor-plugin-disambiguate-locals",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Dyfactor codemod for migrating to mandatory \"this\" in glimmer templates",
   "main": "dist/index.js",
   "author": "Chad Hietala",
