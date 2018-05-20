@@ -20,7 +20,7 @@ const isThisHelper = `
           ${DYFACTOR_GLOBAL}[file].push(str, key);
         }
       } else {
-        ${DYFACTOR_GLOBAL}[file] = [str];
+        ${DYFACTOR_GLOBAL}[file] = [str, key];
       }
     }
 
@@ -58,7 +58,8 @@ export function wrapPotentialLocals(filePath: string) {
     let inHTMLPosition = false;
 
     function isBlockParam(original: string) {
-      return blockParamsStack.indexOf(original) > -1;
+      let [ key ] = original.split('.');
+      return blockParamsStack.includes(key);
     }
 
     function wrapParams(params: any[], fileName: string) {
@@ -119,7 +120,7 @@ export function wrapPotentialLocals(filePath: string) {
           },
           exit(node) {
             if (hasBlockParams(node)) {
-              blockParamsStack = blockParamsStack.slice(0, node.blockParams.length - 1);
+              blockParamsStack = blockParamsStack.slice(0, blockParamsStack.length - node.blockParams.length);
             }
           }
         },
@@ -176,7 +177,7 @@ export function wrapPotentialLocals(filePath: string) {
 
         HashPair(node) {
           if (isPathExpression(node.value)) {
-            if (isBlockParam(node.value)) return;
+            if (isBlockParam(node.value.original)) return;
 
             let params =  isThisParams(node.value.original, filePath);
             node.value = dyfactorSexpr('is-this', params);
